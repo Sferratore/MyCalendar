@@ -40,6 +40,12 @@ namespace MyCalendar.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Register(User formUser)
         {
@@ -51,6 +57,25 @@ namespace MyCalendar.Controllers
                 return RedirectToAction("Index");
             }
             return View(formUser);
+        }
+
+        [HttpPost]
+        public IActionResult Login(User formUser)
+        {
+            User loggedInUser = _db.Users.First<User>(u => u.Username == formUser.Username && u.Password == formUser.Password);
+
+            if (loggedInUser != null)
+            {
+                HttpContext.Session.SetString("loggedInId", loggedInUser.Id.ToString());
+                HttpContext.Session.SetString("loggedInUsername", loggedInUser.Username);
+                return RedirectToRoute(new
+                {
+                    controller = "UserSection",
+                    action = "Index",
+                });
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

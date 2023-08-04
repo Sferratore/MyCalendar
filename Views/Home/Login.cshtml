@@ -1,0 +1,15 @@
+﻿@model User
+
+<div class="text-center">
+    <h2 style="margin:3%">Login</h2>
+    <form method="POST" action="Login">
+
+        <label asp-for="Username"></label> &nbsp;
+        <input asp-for="Username" /><br /> <br />
+
+        <label asp-for="Password"></label> &nbsp;
+        <input type="password" asp-for="Password" /><br /> <br />
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Login</button>
+    </form>
+</div>

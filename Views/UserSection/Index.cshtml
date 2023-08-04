@@ -1,0 +1,4 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+
+<h1>Helloooo @Accessor.HttpContext.Session.GetString("loggedInUsername")</h1>
