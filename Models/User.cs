@@ -5,7 +5,7 @@ namespace MyCalendar.Models
     public class User
     {
         [Key]
-        public int Id { get; set; }
+        public int IdUser { get; set; }
         [Required]
         [StringLength(40)]
         public string Username { get; set; }

@@ -10,7 +10,7 @@ namespace MyCalendar.Data
 
         }
 
-        public DbSet<TaskReminder> TaskReminders { get; set; }
+        public DbSet<CalendarAnnotation> CalendarAnnotations { get; set; }
         public DbSet<User> Users { get; set; }
     }
 }

@@ -53,7 +53,7 @@ namespace MyCalendar.Controllers
             {
                 _db.Users.Add(formUser);
                 _db.SaveChanges();
-                TempData["success"] = "Your account has been created successfully.";
+                TempData["successForAccount"] = "Your account has been created successfully.";
                 return RedirectToAction("Index");
             }
             return View(formUser);
@@ -66,7 +66,7 @@ namespace MyCalendar.Controllers
 
             if (loggedInUser != null)
             {
-                HttpContext.Session.SetString("loggedInId", loggedInUser.Id.ToString());
+                HttpContext.Session.SetInt32("loggedInId", loggedInUser.IdUser);
                 HttpContext.Session.SetString("loggedInUsername", loggedInUser.Username);
                 return RedirectToRoute(new
                 {

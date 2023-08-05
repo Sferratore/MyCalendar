@@ -20,7 +20,8 @@ namespace MyCalendar.Controllers
 
         public IActionResult Calendar()
         {
-            return View();
+            IEnumerable<CalendarAnnotation> objCalendarAnnotationsList = _db.CalendarAnnotations.Where(a => a.User.IdUser == HttpContext.Session.GetInt32("loggedInId")).OrderBy(a => a.Date);
+            return View(objCalendarAnnotationsList);
         }
 
         public IActionResult Create()
@@ -29,16 +30,17 @@ namespace MyCalendar.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(TaskReminder formTask)
+        public IActionResult Create(CalendarAnnotation formAnnotation)
         {
-            if (ModelState.IsValid)
+            if (ModelState.ErrorCount == 1) //Checks for a single error to work around the invalid user field of model CalendarAnnotation
             {
-                _db.TaskReminders.Add(formTask);
+                formAnnotation.User = _db.Users.First(u => u.IdUser == HttpContext.Session.GetInt32("loggedInId"));
+                _db.CalendarAnnotations.Add(formAnnotation);
                 _db.SaveChanges();
-                TempData["success"] = "Your annotation has been created successfully.";
-                return RedirectToAction("Index");
+                TempData["successForAnnotation"] = "Your annotation has been created successfully.";
+                return RedirectToAction("Calendar");
             }
-            return View(formTask);
+            return View(formAnnotation);
         }
     }
 }
