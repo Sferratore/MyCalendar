@@ -19,3 +19,16 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+figure {
+    display: inline-block;
+    margin: 25px; 
+}
+
+    figure img {
+        vertical-align: top;
+    }
+
+    figure figcaption {
+        text-align: center;
+    }

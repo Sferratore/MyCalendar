@@ -21,6 +21,14 @@
       "PackagePath": "staticwebassets\\imgs\\img1.png"
     },
     {
+      "Id": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\imgs\\img2.png",
+      "PackagePath": "staticwebassets\\imgs\\img2.png"
+    },
+    {
+      "Id": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\imgs\\img3.png",
+      "PackagePath": "staticwebassets\\imgs\\img3.png"
+    },
+    {
       "Id": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

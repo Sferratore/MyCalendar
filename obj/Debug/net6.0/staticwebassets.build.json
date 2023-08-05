@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "O8EP329OjFCCpjafwjSy1oDpzD4I4XNvGPGCuJP19I4=",
+  "Hash": "N06tY8K6rRodcXrxzYWeI0twXMhIFLrNflvr1GkHkrk=",
   "Source": "MyCalendar",
   "BasePath": "_content/MyCalendar",
   "Mode": "Default",
@@ -117,6 +117,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imgs\\img1.png"
+    },
+    {
+      "Identity": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\imgs\\img2.png",
+      "SourceId": "MyCalendar",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\",
+      "BasePath": "_content/MyCalendar",
+      "RelativePath": "imgs/img2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imgs\\img2.png"
+    },
+    {
+      "Identity": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\imgs\\img3.png",
+      "SourceId": "MyCalendar",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\",
+      "BasePath": "_content/MyCalendar",
+      "RelativePath": "imgs/img3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imgs\\img3.png"
     },
     {
       "Identity": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\js\\site.js",
