@@ -15,7 +15,9 @@ namespace MyCalendar.Models
         [Required]
         public DateTime Date { get; set; }
         [Required]
-        [ForeignKey("Id")]
+        public int UserId { get; set; }
+        [ForeignKey("UserId")]
+        [Required]
         public virtual User User { get; set; }
     }
 }

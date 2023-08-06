@@ -42,5 +42,33 @@ namespace MyCalendar.Controllers
             }
             return View(formAnnotation);
         }
+
+        public IActionResult Edit(int idCalendar)
+        {
+            CalendarAnnotation toEdit = _db.CalendarAnnotations.First(a => a.IdCalendar == idCalendar);
+            return View(toEdit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(CalendarAnnotation formAnnotation)
+        {
+            if (ModelState.ErrorCount == 1) //Checks for a single error to work around the invalid user field of model CalendarAnnotation
+            {
+                _db.CalendarAnnotations.Update(formAnnotation);
+                _db.SaveChanges();
+                TempData["successForAnnotation"] = "Your annotation has been edited successfully.";
+                return RedirectToAction("Calendar");
+            }
+            return View(formAnnotation);
+        }
+
+        public IActionResult Delete(int idCalendar)
+        {
+            CalendarAnnotation obj = _db.CalendarAnnotations.First(a => a.IdCalendar == idCalendar);
+            _db.CalendarAnnotations.Remove(obj);
+            _db.SaveChanges();
+            TempData["successForAnnotation"] = "Your annotation has been deleted successfully.";
+            return RedirectToAction("Calendar");
+        }
     }
 }

@@ -1,0 +1,23 @@
+﻿@model CalendarAnnotation
+
+<div class="text-center">
+    <h2 style="margin:3%">Edit Annotation</h2>
+    <form method="POST" action="Edit">
+
+        <label asp-for="Title"></label> &nbsp;
+        <input asp-for="Title" />
+        <span asp-validation-for="Title" class="text-danger"></span><br /> <br />
+
+        <label asp-for="Description"></label> &nbsp;
+        <input asp-for="Description" />
+        <span asp-validation-for="Description" class="text-danger"></span><br /> <br />
+
+        <label asp-for="Date"></label> &nbsp;
+        <input asp-for="Date" />
+        <span asp-validation-for="Date" class="text-danger"></span><br /> <br />
+
+        <input asp-for="UserId" hidden/>
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Edit</button>
+    </form>
+</div>
