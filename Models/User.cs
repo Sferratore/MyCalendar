@@ -13,6 +13,9 @@ namespace MyCalendar.Models
         [Required]
         public string Email { get; set; }
 
+        [Compare("Email", ErrorMessage = "The email and confirmation email do not match.")]
+        public string ConfirmEmail { get; set; }
+
         [StringLength(250)]
         [MinLength(6)]
         [Required]
