@@ -5,8 +5,8 @@
       "PackagePath": "staticwebassets\\MyCalendar.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\css\\BootswatchVaporTheme.css",
-      "PackagePath": "staticwebassets\\css\\BootswatchVaporTheme.css"
+      "Id": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\css\\BootswatchTheme.css",
+      "PackagePath": "staticwebassets\\css\\BootswatchTheme.css"
     },
     {
       "Id": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\css\\site.css",
@@ -15,10 +15,6 @@
     {
       "Id": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
-    },
-    {
-      "Id": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\imgs\\img1.png",
-      "PackagePath": "staticwebassets\\imgs\\img1.png"
     },
     {
       "Id": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\imgs\\img2.png",

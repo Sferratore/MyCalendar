@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "N06tY8K6rRodcXrxzYWeI0twXMhIFLrNflvr1GkHkrk=",
+  "Hash": "w0RxXk0bia/b87h0tbSTu3iGXr3WUwD9jk5OV6cfT4A=",
   "Source": "MyCalendar",
   "BasePath": "_content/MyCalendar",
   "Mode": "Default",
@@ -51,12 +51,12 @@
       "OriginalItemSpec": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MyCalendar.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\css\\BootswatchVaporTheme.css",
+      "Identity": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\css\\BootswatchTheme.css",
       "SourceId": "MyCalendar",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\",
       "BasePath": "_content/MyCalendar",
-      "RelativePath": "css/BootswatchVaporTheme.css",
+      "RelativePath": "css/BootswatchTheme.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -65,7 +65,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\BootswatchVaporTheme.css"
+      "OriginalItemSpec": "wwwroot\\css\\BootswatchTheme.css"
     },
     {
       "Identity": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\css\\site.css",
@@ -100,23 +100,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
-    },
-    {
-      "Identity": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\imgs\\img1.png",
-      "SourceId": "MyCalendar",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\",
-      "BasePath": "_content/MyCalendar",
-      "RelativePath": "imgs/img1.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\imgs\\img1.png"
     },
     {
       "Identity": "C:\\Users\\F.P.S\\Desktop\\.NET Core Learning Path\\PROJECTS\\MyCalendar\\wwwroot\\imgs\\img2.png",

@@ -62,7 +62,7 @@ namespace MyCalendar.Controllers
         [HttpPost]
         public IActionResult Login(User formUser)
         {
-            User loggedInUser = _db.Users.First<User>(u => u.Username == formUser.Username && u.Password == formUser.Password);
+            User loggedInUser = _db.Users.FirstOrDefault<User>(u => u.Username == formUser.Username && u.Password == formUser.Password);
 
             if (loggedInUser != null)
             {
