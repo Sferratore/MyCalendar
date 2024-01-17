@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "88Rhn2N2rvjoOyypUN3nd7olW5CFBdq9uVwUcfxcR9PBUylRGYMLJXk2xQQXLYHL8MdlqT7F7/qsHmYVDc784w==",
+  "dgSpecHash": "STdqmuwyPdP+zU2mREiFuWEu+KTx8oLiPh21Vk4lVom0S6Z7d0xyrsjQsuBROKnQuY7fRNFCHor2e1Kq5QkYLw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\39324\\Desktop\\MyCalendar-master\\MyCalendar.csproj",
+  "projectFilePath": "C:\\Users\\39324\\Desktop\\MyCalendar\\MyCalendar.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\39324\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\39324\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",

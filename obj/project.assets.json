@@ -3212,11 +3212,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\39324\\Desktop\\MyCalendar-master\\MyCalendar.csproj",
+      "projectUniqueName": "C:\\Users\\39324\\Desktop\\MyCalendar\\MyCalendar.csproj",
       "projectName": "MyCalendar",
-      "projectPath": "C:\\Users\\39324\\Desktop\\MyCalendar-master\\MyCalendar.csproj",
+      "projectPath": "C:\\Users\\39324\\Desktop\\MyCalendar\\MyCalendar.csproj",
       "packagesPath": "C:\\Users\\39324\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\39324\\Desktop\\MyCalendar-master\\obj\\",
+      "outputPath": "C:\\Users\\39324\\Desktop\\MyCalendar\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\39324\\AppData\\Roaming\\NuGet\\NuGet.Config",
