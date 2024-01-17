@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+
+<div class="text-center">
+    <h2>Hello, @Accessor.HttpContext.Session.GetString("loggedInUsername").</h2>
+    <br />
+    <p>
+        This is your personal homepage. From here you can access your calendar and all the other functionalities.
+    </p>
+</div>
+<br /><br />
+
+<figure>
+    <a asp-controller="UserSection" asp-action="Calendar"><img src="~/imgs/img2.png" /></a>
+    <figcaption>Access MyCalendar</figcaption>
+</figure>
+
+<figure>
+    <img src="~/imgs/img3.png" />
+    <figcaption>Work in progress...</figcaption>
+</figure>
+

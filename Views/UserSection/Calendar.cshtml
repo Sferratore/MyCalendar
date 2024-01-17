@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CalendarAnnotation>
+
+<div class="text-center">
+    <h2>Your Calendar</h2>
+</div>
+
+<br />
+
+<a asp-controller="UserSection" asp-action="Create" class="btn btn-lg btn-primary" style="width:100%">Add new calendar annotation</a>
+
+<br /> <br />
+
+
+<table class="table table-hover">    @*Redo table with bootstrap grid system*@
+    <thead>
+        <tr class="table-dark">
+            <th class="w-auto">
+                Annotation Title
+            </th>
+            <th class="w-auto">
+                Annotation Description
+            </th>
+            <th class="w-75">
+                Date
+            </th>
+            <th>
+                Operations
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td width="50%">
+                    @obj.Title
+                </td>
+                <td width="50%">
+                    @obj.Description
+                </td>
+                <td width="50%">
+                    @obj.Date
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="UserSection" asp-action="Edit" asp-route-idCalendar="@obj.IdCalendar" class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i>Edit</a>
+                        <a asp-controller="UserSection" asp-action="Delete" asp-route-idCalendar="@obj.IdCalendar"  class="btn btn-danger mx-2" id="DeleteButton"><i class="bi bi-x-square-fill"></i>Delete</a> 
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<p class="text-info">
+    @TempData["successForAnnotation"]
+</p>

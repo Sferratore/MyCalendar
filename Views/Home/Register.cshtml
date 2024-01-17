@@ -1,0 +1,26 @@
+﻿@model User
+
+<div class="text-center">
+    <h2 style="margin:3%">Registration</h2>
+    <form method="POST" action="Register">
+
+        <label asp-for="Username"></label> &nbsp;
+        <input asp-for="Username" />
+        <span asp-validation-for="Username" class="text-danger"></span><br /> <br />
+
+        <label asp-for="Email"></label> &nbsp;
+        <input type="email" asp-for="Email"/>
+        <span asp-validation-for="Email" class="text-danger"></span><br /> <br />
+
+        <label asp-for="ConfirmEmail">Confirm Email</label> &nbsp;
+        <input type="email" asp-for="ConfirmEmail" />
+        <span asp-validation-for="ConfirmEmail" class="text-danger"></span><br /> <br />
+
+
+        <label asp-for="Password"></label> &nbsp;
+        <input type="password" asp-for="Password" />
+        <span asp-validation-for="Password" class="text-danger"></span><br /> <br />
+
+        <button type="submit" class="btn btn-primary" style="width:150px" onclick="validateEmailConfirmation()">Register</button>
+    </form>
+</div>
