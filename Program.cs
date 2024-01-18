@@ -41,8 +41,10 @@ app.UseAuthorization();
 
 app.UseSession();
 
+//Defines default route as Home/Index. So if I call f.ex. localhost:7062 (being that the application's URL),
+//it will be routed as localhost:7062/Home/Index.
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}");
 
 app.Run();
