@@ -13,8 +13,8 @@ namespace MyCalendar.Data
 
         }
 
-
-        public DbSet<CalendarAnnotation> CalendarAnnotations { get; set; }
+        //Tables represented in the Db.
+        public DbSet<CalendarAnnotation> CalendarAnnotations { get; set; } 
         public DbSet<User> Users { get; set; }
     }
 }

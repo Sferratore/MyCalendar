@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyCalendar.Data;
 using MyCalendar.Models;
+using System.Diagnostics;
 
 namespace MyCalendar.Controllers
 {
@@ -19,6 +20,14 @@ namespace MyCalendar.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        //Returns Error.cshtml view when /Error is called with a GET action.
+        //Passes an ErrorViewModel object to display data on view.
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)] //Disables caching of the response to this call.
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
         // Retrieves and displays user-specific calendar annotations in a list.
