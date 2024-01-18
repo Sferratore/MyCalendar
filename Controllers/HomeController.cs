@@ -20,7 +20,7 @@ namespace MyCalendar.Controllers
             this._db = db;
         }
 
-        //Returns Index.cshtml view when /Index is called with a GET action.
+        //Returns Index.cshtml view when /Index is called with a GET action. Default action for Home.
         [HttpGet]
         public IActionResult Index()
         {
