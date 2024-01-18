@@ -91,8 +91,9 @@ namespace MyCalendar.Controllers
                 });
             }
 
-            //If login fails, gets user back to Index page of HomeController. (NEED TO CHANGE, DISPLAY AN ERROR OR SOMETHING, PLEASE)
-            return RedirectToAction("Index");
+            //If login fails, gets user back to Login view and displays error message.
+            TempData["loginOperationFeedback"] = "Your login credentials are wrong.";
+            return View(formUser);
         }
     }
 }

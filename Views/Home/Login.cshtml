@@ -1,6 +1,7 @@
 ﻿@model User
 
 <div class="text-center">
+
     <h2 style="margin:3%">Login</h2>
     <form method="POST" action="Login">
 
@@ -12,4 +13,9 @@
 
         <button type="submit" class="btn btn-primary" style="width:150px">Login</button>
     </form>
+
+    <p class="text-info">
+        @TempData["loginOperationFeedback"]
+    </p>
+
 </div>
