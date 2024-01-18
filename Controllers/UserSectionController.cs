@@ -55,6 +55,8 @@ namespace MyCalendar.Controllers
                 toAdd.Date = formAnnotation.Date;
                 toAdd.Description = formAnnotation.Description;
                 toAdd.Title = formAnnotation.Title;
+
+                //Adding to Db
                 _db.CalendarAnnotations.Add(toAdd);
                 _db.SaveChanges();
                 TempData["successForAnnotation"] = "Your annotation has been created successfully.";
@@ -67,13 +69,16 @@ namespace MyCalendar.Controllers
         // The annotation to be edited is identified by its idCalendar parameter.
         public IActionResult Edit(int idCalendar)
         {
+            //Getting annotation
             CalendarAnnotation toEdit = _db.CalendarAnnotations.First(a => a.IdCalendar == idCalendar);
+            //Converting it to CalendarAnnotationViewModel
             CalendarAnnotationViewModel toPassToView = new CalendarAnnotationViewModel();
             toPassToView.UserId = toEdit.UserId;
             toPassToView.IdCalendar = idCalendar;
             toPassToView.Date = toEdit.Date;
             toPassToView.Description = toEdit.Description;
             toPassToView.Title = toEdit.Title;
+            //Passing it to view
             return View(toPassToView);
         }
 
@@ -94,8 +99,10 @@ namespace MyCalendar.Controllers
                 toUpdate.Date = formAnnotation.Date;
                 toUpdate.Description = formAnnotation.Description;
                 toUpdate.Title = formAnnotation.Title;
+                //Saving new data to DB.
                 _db.CalendarAnnotations.Update(toUpdate);
                 _db.SaveChanges();
+                //Redirect to Calendar.cshtml with feedback info.
                 TempData["successForAnnotation"] = "Your annotation has been edited successfully.";
                 return RedirectToAction("Calendar");
             }
