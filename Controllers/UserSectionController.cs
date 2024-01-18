@@ -34,7 +34,9 @@ namespace MyCalendar.Controllers
         // Displays the view for creating a new calendar annotation.
         public IActionResult Create()
         {
-            return View();
+            CalendarAnnotation newCal = new CalendarAnnotation();  //Creation of new calendar annotation to use for the process.
+            newCal.UserId = _db.Users.First(u => u.IdUser == HttpContext.Session.GetInt32("loggedInId")).IdUser; //Setting CalendarAnnotation's UserId
+            return View(newCal);
         }
 
         // Processes the creation of a new calendar annotation.
@@ -44,10 +46,8 @@ namespace MyCalendar.Controllers
         [HttpPost]
         public IActionResult Create(CalendarAnnotation formAnnotation)
         {
-            // ModelState check compensates for expected single error due to user field in CalendarAnnotation model. NEED TO CORRECT! Just add invisible user field inside Create.cshtml.
             if (ModelState.ErrorCount == 1)
             {
-                formAnnotation.User = _db.Users.First(u => u.IdUser == HttpContext.Session.GetInt32("loggedInId"));
                 _db.CalendarAnnotations.Add(formAnnotation);
                 _db.SaveChanges();
                 TempData["successForAnnotation"] = "Your annotation has been created successfully.";
