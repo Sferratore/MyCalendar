@@ -2,8 +2,8 @@
 
 namespace MyCalendar.Models
 {
-    // Represents a user in the system 
-    public class User
+    // Represents a user in the system in a way that can be usable for Views to operate with.
+    public class UserViewModel
     {
         // Unique identifier for the user
         [Key]
@@ -18,6 +18,10 @@ namespace MyCalendar.Models
         [StringLength(250)]
         [Required]
         public string Email { get; set; }
+
+        // Used for confirming the email, must match the Email field. The "Compare" DataAnnotation checks if this field matches with its first argument.
+        [Compare("Email", ErrorMessage = "The email and confirmation email do not match.")]
+        public string ConfirmEmail { get; set; }
 
         // Password for the user, required with a minimum length of 6 characters and maximum length of 250 characters
         [StringLength(250)]

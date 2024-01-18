@@ -1,20 +1,23 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<div class="text-center">
 
-
-<div class="text-center">
     <h1 class="display-4">Welcome to MyCalendar.</h1>
-    <p>MyCalendar helps you manage your tasks all year round.</a></p>
+
+    <p>MyCalendar helps you manage your tasks all year round.</p>
+
     <br />
+
     <p>
         You can use this web application to write down things that you need to do along with the date and time in which they need to occur.
     </p>
+
     <br />
+
     <p>
         This application is still in development. A lot of things will change over time.
     </p>
+
     <br />
+
     <p>
         Have you got an account?
         <a asp-controller="Home" asp-action="Login" class="btn btn-primary mx-2">Login</a>
@@ -22,9 +25,11 @@
         Have not got an account yet?
         <a asp-controller="Home" asp-action="Register" class="btn btn-primary mx-2">Register</a>
     </p>
+
     <p class="text-info">
-        @TempData["successForAccount"]
+        @TempData["operationFeedback"]
     </p>
+
 </div>
 
 

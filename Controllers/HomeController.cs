@@ -27,13 +27,6 @@ namespace MyCalendar.Controllers
             return View();
         }
 
-        //Returns Privacy.cshtml view when /Index is called with a GET action.
-        [HttpGet]
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         //Returns Error.cshtml view when /Error is called with a GET action.
         //Passes an ErrorViewModel object to display data on view.
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)] //Disables caching of the response to this call.
@@ -59,22 +52,29 @@ namespace MyCalendar.Controllers
         //Registers user into DB when /Register is called with a POST action.
         //It can be called by Register.cshtml view. Uses values inserted in view's form to perform registration of the new record.
         [HttpPost]
-        public IActionResult Register(User formUser)
+        public IActionResult Register(UserViewModel formUser)
         {
             if (ModelState.IsValid) //Checks if all the values inserted in the form are correct for an User object.
             {
-                _db.Users.Add(formUser);
+                //Taking data from UserViewModel and creating an User object to insert into DB.
+                User toAdd = new User();
+                toAdd.Email = formUser.Email;
+                toAdd.Password = formUser.Password;
+                toAdd.Username = formUser.Username;
+                //Actually adding User to DB.
+                _db.Users.Add(toAdd);
                 _db.SaveChanges();
-                TempData["successForAccount"] = "Your account has been created successfully."; //Displays operation feedback on next called view.
+                //Getting back to Index view with feedback info.
+                TempData["operationFeedback"] = "Your account has been created successfully."; //Displays operation feedback on next called view.
                 return RedirectToAction("Index");
             }
-            return View(formUser); //If User object has non-valid values, gets back at the Register.cshtml view with the values previously inserted. It will display errors because recalling with the model is a .NET MVC convention and does it all by default.
+            return View(formUser); //If UserViewModel object has non-valid values, gets back at the Register.cshtml view with the values previously inserted. It will display errors because recalling with the model is a .NET MVC convention and does it all by default.
         }
 
         //Logs user into DB when /Login is called with a POST action.
         //It can be called by Login.cshtml view. Uses values inserted in view's form to perform login of user.
         [HttpPost]
-        public IActionResult Login(User formUser)
+        public IActionResult Login(UserViewModel formUser)
         {
             User? loggedInUser = _db.Users.FirstOrDefault<User>(u => u.Username == formUser.Username && u.Password == formUser.Password); //Retrieving user from DB.
 
