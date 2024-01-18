@@ -34,9 +34,9 @@ namespace MyCalendar.Controllers
         // Displays the view for creating a new calendar annotation.
         public IActionResult Create()
         {
-            CalendarAnnotation newCal = new CalendarAnnotation();  //Creation of new calendar annotation to use for the process.
-            newCal.UserId = _db.Users.First(u => u.IdUser == HttpContext.Session.GetInt32("loggedInId")).IdUser; //Setting CalendarAnnotation's UserId
-            return View(newCal);
+            CalendarAnnotationViewModel newCalVm = new CalendarAnnotationViewModel();  //Creation of new calendar annotation to use for the process.
+            newCalVm.UserId = _db.Users.First(u => u.IdUser == HttpContext.Session.GetInt32("loggedInId")).IdUser; //Setting CalendarAnnotation's UserId
+            return View(newCalVm);
         }
 
         // Processes the creation of a new calendar annotation.
@@ -44,11 +44,18 @@ namespace MyCalendar.Controllers
         // Validates the model and adds the new annotation to the database.
         // Redirects to the Calendar view on successful creation.
         [HttpPost]
-        public IActionResult Create(CalendarAnnotation formAnnotation)
+        public IActionResult Create(CalendarAnnotationViewModel formAnnotation)
         {
-            if (ModelState.ErrorCount == 1)
+            if (ModelState.ErrorCount == 0)
             {
-                _db.CalendarAnnotations.Add(formAnnotation);
+                //Creating CalendarAnnotation object to add to db from CalendarAnnotationViewModel.
+                //Adding all info. Excluding IdCalendar which is auto-generated and User which is derived from UserId.
+                CalendarAnnotation toAdd = new CalendarAnnotation();
+                toAdd.UserId = formAnnotation.UserId;
+                toAdd.Date = formAnnotation.Date;
+                toAdd.Description = formAnnotation.Description;
+                toAdd.Title = formAnnotation.Title;
+                _db.CalendarAnnotations.Add(toAdd);
                 _db.SaveChanges();
                 TempData["successForAnnotation"] = "Your annotation has been created successfully.";
                 return RedirectToAction("Calendar");

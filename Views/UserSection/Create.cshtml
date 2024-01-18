@@ -1,4 +1,4 @@
-﻿@model CalendarAnnotation
+﻿@model CalendarAnnotationViewModel
 
 <div class="text-center">
     <h2 style="margin:3%">New Annotation</h2>
@@ -17,8 +17,8 @@
         <span asp-validation-for="Date" class="text-danger"></span><br /> <br />
 
         <input asp-for="UserId" hidden />
-        <input asp-for="User" hidden />
 
         <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+
     </form>
 </div>
