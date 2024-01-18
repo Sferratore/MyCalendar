@@ -46,7 +46,7 @@ namespace MyCalendar.Controllers
         [HttpPost]
         public IActionResult Create(CalendarAnnotationViewModel formAnnotation)
         {
-            if (ModelState.ErrorCount == 0)
+            if (ModelState.IsValid)
             {
                 //Creating CalendarAnnotation object to add to db from CalendarAnnotationViewModel.
                 //Adding all info. Excluding IdCalendar which is auto-generated and User which is derived from UserId.
@@ -68,19 +68,33 @@ namespace MyCalendar.Controllers
         public IActionResult Edit(int idCalendar)
         {
             CalendarAnnotation toEdit = _db.CalendarAnnotations.First(a => a.IdCalendar == idCalendar);
-            return View(toEdit);
+            CalendarAnnotationViewModel toPassToView = new CalendarAnnotationViewModel();
+            toPassToView.UserId = toEdit.UserId;
+            toPassToView.IdCalendar = idCalendar;
+            toPassToView.Date = toEdit.Date;
+            toPassToView.Description = toEdit.Description;
+            toPassToView.Title = toEdit.Title;
+            return View(toPassToView);
         }
 
         // Processes the editing of a specific calendar annotation.
         // Updates the annotation in the database based on the submitted model.
         // Redirects to the Calendar view on successful editing.
         [HttpPost]
-        public IActionResult Edit(CalendarAnnotation formAnnotation)
+        public IActionResult Edit(CalendarAnnotationViewModel formAnnotation)
         {
             // ModelState check compensates for expected single error due to user field in CalendarAnnotation model.
-            if (ModelState.ErrorCount == 1)
+            if (ModelState.IsValid)
             {
-                _db.CalendarAnnotations.Update(formAnnotation);
+                //Creating CalendarAnnotation object to update into db from CalendarAnnotationViewModel.
+                //Adding all info. Excluding User which is derived from UserId.
+                CalendarAnnotation toUpdate = new CalendarAnnotation();
+                toUpdate.IdCalendar = formAnnotation.IdCalendar;
+                toUpdate.UserId = formAnnotation.UserId;
+                toUpdate.Date = formAnnotation.Date;
+                toUpdate.Description = formAnnotation.Description;
+                toUpdate.Title = formAnnotation.Title;
+                _db.CalendarAnnotations.Update(toUpdate);
                 _db.SaveChanges();
                 TempData["successForAnnotation"] = "Your annotation has been edited successfully.";
                 return RedirectToAction("Calendar");
