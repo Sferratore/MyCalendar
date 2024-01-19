@@ -68,7 +68,7 @@ namespace MyCalendar.Controllers
                 //Adding to Db
                 _db.CalendarAnnotations.Add(toAdd);
                 _db.SaveChanges();
-                TempData["successForAnnotation"] = "Your annotation has been created successfully.";
+                TempData["annotationOperationFeedback"] = "Your annotation has been created successfully.";
                 return RedirectToAction("Calendar");
             }
             return View(formAnnotation);
@@ -112,7 +112,7 @@ namespace MyCalendar.Controllers
                 _db.CalendarAnnotations.Update(toUpdate);
                 _db.SaveChanges();
                 //Redirect to Calendar.cshtml with feedback info.
-                TempData["successForAnnotation"] = "Your annotation has been edited successfully.";
+                TempData["annotationOperationFeedback"] = "Your annotation has been edited successfully.";
                 return RedirectToAction("Calendar");
             }
             return View(formAnnotation);
@@ -126,7 +126,7 @@ namespace MyCalendar.Controllers
             CalendarAnnotation obj = _db.CalendarAnnotations.First(a => a.IdCalendar == idCalendar);
             _db.CalendarAnnotations.Remove(obj);
             _db.SaveChanges();
-            TempData["successForAnnotation"] = "Your annotation has been deleted successfully.";
+            TempData["annotationOperationFeedback"] = "Your annotation has been deleted successfully.";
             return RedirectToAction("Calendar");
         }
     }

@@ -1,17 +1,17 @@
-﻿@model IEnumerable<CalendarAnnotation>
+﻿<!--Takes a list of CalendarAnnotations as model -->
+@model IEnumerable<CalendarAnnotation> 
 
 <div class="text-center">
     <h2>Your Calendar</h2>
 </div>
-
 <br />
 
-<a asp-controller="UserSection" asp-action="Create" class="btn btn-lg btn-primary" style="width:100%">Add new calendar annotation</a>
 
+<a asp-controller="UserSection" asp-action="Create" class="btn btn-lg btn-primary" style="width:100%">Add new calendar annotation</a>
 <br /> <br />
 
-
-<table class="table table-hover">    @*Redo table with bootstrap grid system*@
+<!--Table created with bootstrap grid system-->
+<table class="table table-hover">    
     <thead>
         <tr class="table-dark">
             <th class="w-auto">
@@ -54,5 +54,5 @@
 
 
 <p class="text-info">
-    @TempData["successForAnnotation"]
+    @TempData["annotationOperationFeedback"]
 </p>
