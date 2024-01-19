@@ -1,26 +1,37 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MyCalendar</title>
-    <link rel="stylesheet" href="~/css/BootswatchTheme.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/MyCalendar.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>MyCalendar</title>
+    <link rel="stylesheet" href="~/css/BootswatchTheme.css" /> @*Adding Bootswatch Theme css styling*@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />  @*Appending personalized css in site.css to already present Bootswatch theme*@
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">  @*Adding use of bootstrap-icons as stylesheet*@
 </head>
+
 <body>
+    @*Header section of the body*@
     <header>
+        @* Navigation bar with various Bootstrap classes for styling and responsiveness *@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            @* Container fluid for full width and proper alignment of nav elements *@
             <div class="container-fluid">
+                @* Navbar brand/logo which links to the Home/Index action. *@
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MyCalendar</a>
+
+                @* Navbar toggler button for collapsible navbar in mobile view. It toggles the visibility of the navbar-collapse div. *@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                @* Collapsible part of the navbar that contains navigation links. It's hidden in mobile view and toggled by the navbar-toggler button. *@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    @* Navigation menu items *@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
+                            @* Navigation link to the Home/Index page *@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                     </ul>
@@ -28,20 +39,36 @@
             </div>
         </nav>
     </header>
+
+    @*Renders View page inside this layout*@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
+    @* Footer section of the page *@
     <footer class="border-top footer text-muted">
+        @* Container to align footer content properly *@
         <div class="container">
-            &copy; 2023 - MyCalendar 
+            @* Copyright notice with current year and application name. It's a common practice to include this in the footer. *@
+            &copy; 2023 - MyCalendar
         </div>
     </footer>
+
+    @* Including essential JavaScript libraries and scripts for the application *@
+    @* jQuery library inclusion. *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    @* Bootstrap's JavaScript bundle. This includes Bootstrap's own JavaScript and Popper. Necessary for Bootstrap's components and features to function properly. *@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @* Site specific JavaScript file. 'asp-append-version' is used for cache busting. It appends a version query string to the URL, based on the file's modification date. *@
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @* RenderSectionAsync for "Scripts". This allows pages that use this layout to inject additional scripts. 'required: false' means it's optional for the pages to provide this section. *@
     @await RenderSectionAsync("Scripts", required: false)
+
+
 </body>
 </html>
