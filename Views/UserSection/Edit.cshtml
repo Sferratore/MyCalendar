@@ -16,8 +16,8 @@
         <input asp-for="Date" />
         <span asp-validation-for="Date" class="text-danger"></span><br /> <br />
 
-        <input asp-for="UserId" hidden /> <!--Hidden UserId used to memorize data from controller initialization. Will pass data back to the controller, again-->
-        <input asp-for="IdCalendar" hidden /> <!--Hidden IdCalendar used to memorize data from controller initialization. Will pass data back to the controller, again-->
+        <input asp-for="UserId" hidden /> @*Hidden UserId used to memorize data from controller initialization. Will pass data back to the controller, again*@
+        <input asp-for="IdCalendar" hidden /> @*Hidden IdCalendar used to memorize data from controller initialization. Will pass data back to the controller, again*@
 
         <button type="submit" class="btn btn-primary" style="width:150px">Edit</button>
     </form>
