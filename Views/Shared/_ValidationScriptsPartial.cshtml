@@ -1,2 +1,12 @@
-﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+﻿@* Shared view for including jQuery validation scripts.
+   This view can be included in other views to enable client-side validation. *@
+
+@* Script for jQuery Validation plugin.
+   This plugin provides a way to perform validation on form fields and is highly customizable.
+   It's used here to validate forms on the client side, improving user experience by providing immediate feedback on input. *@
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+
+@* Script for jQuery Validation Unobtrusive plugin.
+   This plugin adds to jQuery Validation by enabling unobtrusive validation in ASP.NET.
+   It uses data attributes instead of inline JavaScript, making the HTML cleaner and decoupling validation logic from HTML markup. *@
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
