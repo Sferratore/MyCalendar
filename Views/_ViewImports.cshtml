@@ -1,3 +1,17 @@
-﻿@using MyCalendar
+﻿@* This file contains directives that are imported into every view in the same directory and its subdirectories.
+   It's used to reduce redundancy by adding common namespaces and tag helpers across multiple views. *@
+
+@* The 'using' directive makes the 'MyCalendar' namespace available to all views.
+   This allows the use of types defined in 'MyCalendar' without having to specify the full namespace each time. *@
+@using MyCalendar
+
+@* The 'using' directive for 'MyCalendar.Models'.
+   It makes all the types within 'MyCalendar.Models' namespace available to the views,
+   typically used for accessing model types that are passed to the views. *@
 @using MyCalendar.Models
+
+@* Adds the tag helpers from the 'Microsoft.AspNetCore.Mvc.TagHelpers' assembly.
+   This enables the use of ASP.NET Core's built-in Tag Helpers in views,
+   which are used to enable server-side code to participate in creating and rendering HTML elements in Razor files.
+   The '*' character means it imports all tag helpers from the specified assembly. *@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
