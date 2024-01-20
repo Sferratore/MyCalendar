@@ -25,6 +25,14 @@
       "PackagePath": "staticwebassets\\imgs\\img3.png"
     },
     {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\img4.png",
+      "PackagePath": "staticwebassets\\imgs\\img4.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\img5.png",
+      "PackagePath": "staticwebassets\\imgs\\img5.png"
+    },
+    {
       "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
