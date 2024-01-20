@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 
 namespace MyCalendar.Controllers
 {
+    //CalendarController is a controller used to handle operation on the Calendar section of the app.
     public class CalendarController : Controller
     {
         private readonly ApplicationDbContext _db; // DInjected in constructor. Main DbContext.
-        private readonly HttpClient _httpClient; //DInjected in constructor. Main client for http requests.
 
         public CalendarController(ApplicationDbContext db, IHttpClientFactory httpClientFactory)
         {
-            this._db = db;
-            this._httpClient = httpClientFactory.CreateClient();
+            this._db = db; // DInjected in constructor. Main DbContext.
         }
 
 
