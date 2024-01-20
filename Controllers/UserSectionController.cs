@@ -129,5 +129,17 @@ namespace MyCalendar.Controllers
             TempData["annotationOperationFeedback"] = "Your annotation has been deleted successfully.";
             return RedirectToAction("Calendar");
         }
+
+        //TEST!!!!
+        public IActionResult GetClientIPAddress()
+        {
+            // Get the IP address of the remote client
+            var remoteIpAddress = HttpContext.Connection.RemoteIpAddress.ToString();
+
+            // Use the IP address to get location data from a GeoIP service if necessary
+
+            // Return the IP address in the response (for demonstration purposes)
+            return Ok(remoteIpAddress);
+        }
     }
 }
