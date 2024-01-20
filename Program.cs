@@ -29,6 +29,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     builder.Configuration.GetConnectionString("DefaultConnection")
 ));
 
+//DI For HttpClient.
+//Allows us to use the app system as client and to do http calls.
+builder.Services.AddHttpClient();
+
 
 // Builds WebApplication
 var app = builder.Build();

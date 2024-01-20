@@ -255,3 +255,4 @@ C:\Users\39324\Desktop\MyCalendar\obj\Debug\net6.0\refint\MyCalendar.dll
 C:\Users\39324\Desktop\MyCalendar\obj\Debug\net6.0\MyCalendar.pdb
 C:\Users\39324\Desktop\MyCalendar\obj\Debug\net6.0\MyCalendar.genruntimeconfig.cache
 C:\Users\39324\Desktop\MyCalendar\obj\Debug\net6.0\ref\MyCalendar.dll
+C:\Users\39324\Desktop\MyCalendar\bin\Debug\net6.0\Newtonsoft.Json.dll
