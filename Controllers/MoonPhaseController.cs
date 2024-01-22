@@ -22,9 +22,11 @@ namespace MyCalendar.Controllers
             this._apiSettings = apiSettings.Value; 
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var response = await GetClientLocation();
+            return Ok(GetMoonInfo(response.v));
+            //return View();
         }
 
 
@@ -65,7 +67,7 @@ namespace MyCalendar.Controllers
                 };
 
                 // Return the location data in the response
-                return Ok(clientLocation);
+                return Ok(clientLocation.City);
             }
             catch (HttpRequestException e)
             {
@@ -74,10 +76,11 @@ namespace MyCalendar.Controllers
             }
         }
 
-        public async Task <IActionResult> getMoonInfo(string place)
+        // Asks WeatherAPI info about current weather on a defined place
+        public async Task <IActionResult> GetWeatherInfo(string place)
         {
             //Writing request
-            string apiUrl = $"{_apiSettings.HistoryUrl}?key={_apiSettings.WeatherAPIKey}&q={placeName}&dt={date}&hour={hour}";
+            string apiUrl = $"{_apiSettings.HistoryUrl}?key={_apiSettings.WeatherAPIKey}&q={place}&dt={DateTime.Now.ToString("yyyy-MM-dd")}&hour={DateTime.Now.Hour}";
 
             //Awaiting response from WeatherAPI
             HttpResponseMessage response = await _httpClient.GetAsync(apiUrl);
@@ -91,8 +94,7 @@ namespace MyCalendar.Controllers
                 return BadRequest(jsonString);
             }
 
-            //Converting Json in Object form and giving it back if operation was successful.
-            return Ok(createWeatherForecastObjectFromJsonExternal(jsonString));
+            return Ok(jsonString);
         }
     }
 }
