@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using MyCalendar.Data;
+using MyCalendar.Models;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
 
@@ -11,11 +13,13 @@ namespace MyCalendar.Controllers
 
         private readonly ApplicationDbContext _db; // DInjected in constructor. Main DbContext.
         private readonly HttpClient _httpClient; //DInjected in constructor. Main client for http requests.
+        private readonly WeatherApiSettings _apiSettings; //DInjected in constructor. Object represents settings of WeatherAPI in appsettings.json
 
-        public MoonPhaseController(ApplicationDbContext db, IHttpClientFactory httpClientFactory)
+        public MoonPhaseController(ApplicationDbContext db, IHttpClientFactory httpClientFactory, IOptions<WeatherApiSettings> apiSettings)
         {
-            this._db = db; // DInjected in constructor. Main DbContext.
-            this._httpClient = httpClientFactory.CreateClient(); //DInjected in constructor. Main client for http requests.
+            this._db = db;
+            this._httpClient = httpClientFactory.CreateClient(); 
+            this._apiSettings = apiSettings.Value; 
         }
 
         public IActionResult Index()
@@ -70,9 +74,25 @@ namespace MyCalendar.Controllers
             }
         }
 
-        public async Task <IActionResult> getMoonInfo(string country)
+        public async Task <IActionResult> getMoonInfo(string place)
         {
+            //Writing request
+            string apiUrl = $"{_apiSettings.HistoryUrl}?key={_apiSettings.WeatherAPIKey}&q={placeName}&dt={date}&hour={hour}";
 
+            //Awaiting response from WeatherAPI
+            HttpResponseMessage response = await _httpClient.GetAsync(apiUrl);
+
+            //Creating response for current API
+            string jsonString = await response.Content.ReadAsStringAsync();
+
+            //Giving back error in case something goes wrong
+            if (!response.IsSuccessStatusCode)
+            {
+                return BadRequest(jsonString);
+            }
+
+            //Converting Json in Object form and giving it back if operation was successful.
+            return Ok(createWeatherForecastObjectFromJsonExternal(jsonString));
         }
     }
 }

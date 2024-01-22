@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MyCalendar.Data;
+using MyCalendar.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 //DI For HttpClient.
 //Allows us to use the app system as client and to do http calls.
 builder.Services.AddHttpClient();
+
+//Defining DI for class using appsettings.json.
+builder.Services.Configure<WeatherApiSettings>(builder.Configuration.GetSection("WeatherAPI"));
 
 
 // Builds WebApplication
