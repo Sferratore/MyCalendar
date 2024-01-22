@@ -42,7 +42,7 @@ namespace MyCalendar.Controllers
             }
 
             // Construct the URL for the GeoIP service
-            var url = "http://www.ipinfo.io/" + remoteIpAddress + "?token=43471cd5cb293b";
+            var url = $"{_geoipApiSettings.IpAPIUrl}{remoteIpAddress}?token={_geoipApiSettings.IpAPIKey}";
 
             try
             {
