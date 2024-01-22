@@ -13,13 +13,15 @@ namespace MyCalendar.Controllers
 
         private readonly ApplicationDbContext _db; // DInjected in constructor. Main DbContext.
         private readonly HttpClient _httpClient; //DInjected in constructor. Main client for http requests.
-        private readonly WeatherApiSettings _apiSettings; //DInjected in constructor. Object represents settings of WeatherAPI in appsettings.json
+        private readonly WeatherApiSettings _weatherApiSettings; //DInjected in constructor. Object represents settings of WeatherAPI in appsettings.json
+        private readonly GeoIpApiSettings _geoipApiSettings; //DInjected in constructor. Object represents settings of GeoIpAPI in appsettings.json
 
-        public MoonPhaseController(ApplicationDbContext db, IHttpClientFactory httpClientFactory, IOptions<WeatherApiSettings> apiSettings)
+        public MoonPhaseController(ApplicationDbContext db, IHttpClientFactory httpClientFactory, IOptions<WeatherApiSettings> weatherApiSettings, IOptions<GeoIpApiSettings> geoipApiSettings)
         {
             this._db = db;
             this._httpClient = httpClientFactory.CreateClient(); 
-            this._apiSettings = apiSettings.Value; 
+            this._weatherApiSettings = weatherApiSettings.Value;
+            this._geoipApiSettings = geoipApiSettings.Value;
         }
 
         public async Task<IActionResult> Index()
@@ -78,7 +80,7 @@ namespace MyCalendar.Controllers
         public async Task <IActionResult> GetWeatherInfo(string place)
         {
             //Writing request
-            string apiUrl = $"{_apiSettings.HistoryUrl}?key={_apiSettings.WeatherAPIKey}&q={place}&dt={DateTime.Now.ToString("yyyy-MM-dd")}&hour={DateTime.Now.Hour}";
+            string apiUrl = $"{_weatherApiSettings.HistoryUrl}?key={_weatherApiSettings.WeatherAPIKey}&q={place}&dt={DateTime.Now.ToString("yyyy-MM-dd")}&hour={DateTime.Now.Hour}";
 
             //Awaiting response from WeatherAPI
             HttpResponseMessage response = await _httpClient.GetAsync(apiUrl);

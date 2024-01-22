@@ -37,6 +37,10 @@ builder.Services.AddHttpClient();
 //Defining DI for class using appsettings.json.
 builder.Services.Configure<WeatherApiSettings>(builder.Configuration.GetSection("WeatherAPI"));
 
+//Defining DI for class using appsettings.json.
+builder.Services.Configure<GeoIpApiSettings>(builder.Configuration.GetSection("GeoIpAPI"));
+
+
 
 // Builds WebApplication
 var app = builder.Build();
