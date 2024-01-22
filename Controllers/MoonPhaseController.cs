@@ -101,11 +101,37 @@ namespace MyCalendar.Controllers
                 remoteIpAddress = "23.130.205.199";
             }
 
+            //Collecting location data
             IActionResult clientLocationResult = await GetClientLocation(remoteIpAddress);
-            if(clientLocationResult is OkObjectResult okResult)
+            if(clientLocationResult is OkObjectResult okClientLocationResult)
             {
-                string city = okResult.Value as string;
+                //If response is OK, then we take the location data
+                string location = okClientLocationResult.Value as string;
+                //Calling GetWeatherInfo to get data about weather
+                IActionResult weatherDataResult = await GetWeatherInfo(location);
+                if(weatherDataResult is OkObjectResult okWeatherDataResult) {
+                    //If response is ok, we retrieve data and manipulate it to take what we need
+                    // Parse the JSON response
+                    var weatherData = JObject.Parse(okWeatherDataResult.Value.ToString());
+
+                    // Extract astro details
+                    var astroDetails = weatherData["forecast"]["forecastday"][0]["astro"];
+
+                    // Construct the new JSON object with the needed data
+                    var moonStatus = new JObject
+                    {
+                        ["moon_status"] = new JObject
+                        {
+                            ["moonrise"] = astroDetails["moonrise"],
+                            ["moonset"] = astroDetails["moonset"],
+                            ["moon_phase"] = astroDetails["moon_phase"],
+                            ["moon_illumination"] = astroDetails["moon_illumination"]
+                        }
+                    };
+                }
             }
+
+            
 
             return Ok();
         }
