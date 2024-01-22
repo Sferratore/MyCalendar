@@ -26,21 +26,16 @@ namespace MyCalendar.Controllers
 
         public async Task<IActionResult> Index()
         {
+            GetMoonInfo();
             return View();
         }
 
 
         //Asks IPinfo API information about user location based on IP.
         //Returns country, region, city.
-        public async Task<IActionResult> GetClientLocation()
+        private async Task<IActionResult> GetClientLocation(string remoteIpAddress)
         {
-            // Get the IP address of the remote client
-            var remoteIpAddress = HttpContext.Connection.RemoteIpAddress.ToString();
-            if (remoteIpAddress == "::1")
-            {
-                remoteIpAddress = "23.130.205.199";
-            }
-
+            
             // Construct the URL for the GeoIP service
             var url = $"{_geoipApiSettings.IpAPIUrl}{remoteIpAddress}?token={_geoipApiSettings.IpAPIKey}";
 
@@ -77,7 +72,7 @@ namespace MyCalendar.Controllers
         }
 
         // Asks WeatherAPI info about current weather on a defined place
-        public async Task <IActionResult> GetWeatherInfo(string place)
+        private async Task <IActionResult> GetWeatherInfo(string place)
         {
             //Writing request
             string apiUrl = $"{_weatherApiSettings.HistoryUrl}?key={_weatherApiSettings.WeatherAPIKey}&q={place}&dt={DateTime.Now.ToString("yyyy-MM-dd")}&hour={DateTime.Now.Hour}";
@@ -95,6 +90,24 @@ namespace MyCalendar.Controllers
             }
 
             return Ok(jsonString);
+        }
+
+        private async Task <IActionResult> GetMoonInfo()
+        {
+            // Get the IP address of the remote client
+            var remoteIpAddress = HttpContext.Connection.RemoteIpAddress.ToString();
+            if (remoteIpAddress == "::1")
+            {
+                remoteIpAddress = "23.130.205.199";
+            }
+
+            IActionResult clientLocationResult = await GetClientLocation(remoteIpAddress);
+            if(clientLocationResult is OkObjectResult okResult)
+            {
+                string city = okResult.Value as string;
+            }
+
+            return Ok();
         }
     }
 }
