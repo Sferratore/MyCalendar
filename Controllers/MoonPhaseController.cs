@@ -24,9 +24,7 @@ namespace MyCalendar.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var response = await GetClientLocation();
-            return Ok(GetMoonInfo(response.v));
-            //return View();
+            return View();
         }
 
 
