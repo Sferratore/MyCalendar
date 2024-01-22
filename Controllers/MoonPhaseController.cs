@@ -129,6 +129,14 @@ namespace MyCalendar.Controllers
                         }
                     };
                 }
+                else
+                {
+                    return BadRequest(weatherDataResult);
+                }
+            }
+            else
+            {
+                return BadRequest(clientLocationResult);
             }
 
             
