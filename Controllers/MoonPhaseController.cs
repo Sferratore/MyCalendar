@@ -69,5 +69,10 @@ namespace MyCalendar.Controllers
                 return StatusCode(500, "Error accessing the GeoIP service: " + e.Message);
             }
         }
+
+        public async Task <IActionResult> getMoonInfo(string country)
+        {
+
+        }
     }
 }
