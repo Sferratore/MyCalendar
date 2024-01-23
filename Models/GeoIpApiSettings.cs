@@ -5,7 +5,7 @@
      */
     public class GeoIpApiSettings
     {
-        public string IpAPIUrl { get; set; }
-        public string IpAPIKey { get; set; }
+        public string IpAPIUrl { get; set; } // Url of Ip API used
+        public string IpAPIKey { get; set; } // Key of Ip API used
     }
 }
