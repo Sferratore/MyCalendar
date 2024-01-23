@@ -19,14 +19,20 @@ namespace MyCalendar.Controllers
         public MoonPhaseController(ApplicationDbContext db, IHttpClientFactory httpClientFactory, IOptions<WeatherApiSettings> weatherApiSettings, IOptions<GeoIpApiSettings> geoipApiSettings)
         {
             this._db = db;
-            this._httpClient = httpClientFactory.CreateClient(); 
+            this._httpClient = httpClientFactory.CreateClient();
             this._weatherApiSettings = weatherApiSettings.Value;
             this._geoipApiSettings = geoipApiSettings.Value;
         }
 
         public async Task<IActionResult> Index()
         {
-            GetMoonInfo();
+            IActionResult moonInfoResult = await GetMoonInfo();
+            if (moonInfoResult is OkObjectResult okMoonInfoResult)
+            {
+                var moonData = JObject.Parse(okMoonInfoResult.Value.ToString());
+            }
+
+
             return View();
         }
 
@@ -35,7 +41,7 @@ namespace MyCalendar.Controllers
         //Returns country, region, city.
         private async Task<IActionResult> GetClientLocation(string remoteIpAddress)
         {
-            
+
             // Construct the URL for the GeoIP service
             var url = $"{_geoipApiSettings.IpAPIUrl}{remoteIpAddress}?token={_geoipApiSettings.IpAPIKey}";
 
@@ -72,7 +78,7 @@ namespace MyCalendar.Controllers
         }
 
         // Asks WeatherAPI info about current weather on a defined place
-        private async Task <IActionResult> GetWeatherInfo(string place)
+        private async Task<IActionResult> GetWeatherInfo(string place)
         {
             //Writing request
             string apiUrl = $"{_weatherApiSettings.HistoryUrl}?key={_weatherApiSettings.WeatherAPIKey}&q={place}&dt={DateTime.Now.ToString("yyyy-MM-dd")}&hour={DateTime.Now.Hour}";
@@ -92,7 +98,7 @@ namespace MyCalendar.Controllers
             return Ok(jsonString);
         }
 
-        private async Task <IActionResult> GetMoonInfo()
+        private async Task<IActionResult> GetMoonInfo()
         {
             // Get the IP address of the remote client
             var remoteIpAddress = HttpContext.Connection.RemoteIpAddress.ToString();
@@ -103,13 +109,14 @@ namespace MyCalendar.Controllers
 
             //Collecting location data
             IActionResult clientLocationResult = await GetClientLocation(remoteIpAddress);
-            if(clientLocationResult is OkObjectResult okClientLocationResult)
+            if (clientLocationResult is OkObjectResult okClientLocationResult)
             {
                 //If response is OK, then we take the location data
                 string location = okClientLocationResult.Value as string;
                 //Calling GetWeatherInfo to get data about weather
                 IActionResult weatherDataResult = await GetWeatherInfo(location);
-                if(weatherDataResult is OkObjectResult okWeatherDataResult) {
+                if (weatherDataResult is OkObjectResult okWeatherDataResult)
+                {
                     //If response is ok, we retrieve data and manipulate it to take what we need
                     // Parse the JSON response
                     var weatherData = JObject.Parse(okWeatherDataResult.Value.ToString());
@@ -128,20 +135,17 @@ namespace MyCalendar.Controllers
                             ["moon_illumination"] = astroDetails["moon_illumination"]
                         }
                     };
+
+                    return Ok(moonStatus);
                 }
                 else
                 {
                     return BadRequest(weatherDataResult);
                 }
             }
-            else
-            {
-                return BadRequest(clientLocationResult);
-            }
 
-            
+            return BadRequest(clientLocationResult);
 
-            return Ok();
         }
     }
 }
