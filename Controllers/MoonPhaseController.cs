@@ -30,13 +30,14 @@ namespace MyCalendar.Controllers
             if (moonInfoResult is OkObjectResult okMoonInfoResult)
             {
                 var moonData = JObject.Parse(okMoonInfoResult.Value.ToString());
-                string moonrise = moonData["moon_status"]["moonrise"].ToString();
-                string moonset = moonData["moon_status"]["moonset"].ToString();
-                string moonPhase = moonData["moon_status"]["moon_phase"].ToString();
-                string moonIllumination = moonData["moon_status"]["moon_illumination"].ToString();
-                return View();
+                MoonDataViewModel moonDataVw = new MoonDataViewModel();
+                moonDataVw.Moonrise = moonData["moon_status"]["moonrise"].ToString();
+                moonDataVw.Moonset = moonData["moon_status"]["moonset"].ToString();
+                moonDataVw.MoonPhase = moonData["moon_status"]["moon_phase"].ToString();
+                moonDataVw.MoonIllumination = moonData["moon_status"]["moon_illumination"].ToString();
+                return View(moonDataVw);
             }
-            return BadRequest();
+            return BadRequest(moonInfoResult);
         }
 
 
