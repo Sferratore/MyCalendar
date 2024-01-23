@@ -24,21 +24,35 @@ namespace MyCalendar.Controllers
             this._geoipApiSettings = geoipApiSettings.Value;
         }
 
+        // Returns Index view which is the main one that displays data.
         public async Task<IActionResult> Index()
         {
+            // Call the GetMoonInfo method to retrieve moon-related information
             IActionResult moonInfoResult = await GetMoonInfo();
+
+            // Check if the result is an OkObjectResult
             if (moonInfoResult is OkObjectResult okMoonInfoResult)
             {
+                // Parse the JSON response from the OkObjectResult
                 var moonData = JObject.Parse(okMoonInfoResult.Value.ToString());
+
+                // Create a new instance of the MoonDataViewModel to store moon-related data
                 MoonDataViewModel moonDataVw = new MoonDataViewModel();
+
+                // Extract moon-related information and populate the MoonDataViewModel
                 moonDataVw.Moonrise = moonData["moon_status"]["moonrise"].ToString();
                 moonDataVw.Moonset = moonData["moon_status"]["moonset"].ToString();
                 moonDataVw.MoonPhase = moonData["moon_status"]["moon_phase"].ToString();
                 moonDataVw.MoonIllumination = moonData["moon_status"]["moon_illumination"].ToString();
+
+                // Return the MoonDataViewModel to the corresponding view
                 return View(moonDataVw);
             }
+
+            // If the result is not OkObjectResult, return a BadRequest response
             return BadRequest(moonInfoResult);
         }
+
 
 
         //Asks IPinfo API information about user location based on IP.
@@ -140,14 +154,17 @@ namespace MyCalendar.Controllers
                         }
                     };
 
+                    // Return Ok status with data
                     return Ok(moonStatus);
                 }
                 else
                 {
+                    // Return bad request with result detail
                     return BadRequest(weatherDataResult);
                 }
             }
 
+            // Return bad request with result detail
             return BadRequest(clientLocationResult);
 
         }
