@@ -7,5 +7,6 @@
         public string Moonset { get; set;}
         public string MoonPhase { get; set;}
         public string MoonIllumination { get; set;}
+        public string MoonImgUrl { get; set;}
     }
 }

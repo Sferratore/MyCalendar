@@ -1,39 +1,7 @@
-﻿@{
-    string moonImageUrl = string.Empty;
-    switch (@Model.MoonPhase)
-    {
-        case "New Moon":
-            moonImageUrl = "~/imgs/newmoon.png";
-            break;
-        case "First Quarter":
-            moonImageUrl = "~/imgs/firstquarter.png";
-            break;
-        case "Full Moon":
-            moonImageUrl = "~/imgs/fullmoon.png";
-            break;
-        case "Third Quarter":
-            moonImageUrl = "~/imgs/thirdquarter.png";
-            break;
-        case "Waning Crescent":
-            moonImageUrl = "~/imgs/waningcrescent.png";
-            break;
-        case "Waning Gibbous":
-            moonImageUrl = "~/imgs/waninggibbous.png";
-            break;
-        case "Waxing Crescent":
-            moonImageUrl = "~/imgs/waxingcrescent.png";
-            break;
-        case "Waxing Gibbous":
-            moonImageUrl = "~/imgs/waxinggibbous.png";
-            break;
-        default:
-            moonImageUrl = "~/imgs/fullmoon.png";
-            break;
-    }
-}
+﻿@model MoonDataViewModel
 
 <h1>Today's Moon</h1>
-<img src="@moonImageUrl" alt="Moon Phase Image">
+<img src="" alt="Moon Phase Image">
 <p>Moon Phase: @Model.MoonPhase</p>
 <p>Moonrise: @Model.Moonrise</p>
 <p>Moonset: @Model.Moonset</p>

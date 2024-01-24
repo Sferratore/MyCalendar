@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\firstquarter.png",
+      "PackagePath": "staticwebassets\\imgs\\firstquarter.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\fullmoon.png",
+      "PackagePath": "staticwebassets\\imgs\\fullmoon.png"
+    },
+    {
       "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\img2.png",
       "PackagePath": "staticwebassets\\imgs\\img2.png"
     },
@@ -31,6 +39,30 @@
     {
       "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\img5.png",
       "PackagePath": "staticwebassets\\imgs\\img5.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\newmoon.png",
+      "PackagePath": "staticwebassets\\imgs\\newmoon.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\thirdquarter.png",
+      "PackagePath": "staticwebassets\\imgs\\thirdquarter.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\waningcrescent.png",
+      "PackagePath": "staticwebassets\\imgs\\waningcrescent.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\waninggibbous.png",
+      "PackagePath": "staticwebassets\\imgs\\waninggibbous.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\waxingcrescent.png",
+      "PackagePath": "staticwebassets\\imgs\\waxingcrescent.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\waxinggibbous.png",
+      "PackagePath": "staticwebassets\\imgs\\waxinggibbous.png"
     },
     {
       "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\js\\site.js",

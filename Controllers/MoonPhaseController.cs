@@ -142,6 +142,39 @@ namespace MyCalendar.Controllers
                     // Extract astro details
                     var astroDetails = weatherData["forecast"]["forecastday"][0]["astro"];
 
+                    //Create moonImageUrl
+                    string moonImageUrl = string.Empty;
+                    switch (astroDetails["moon_phase"].ToString())
+                    {
+                        case "New Moon":
+                            moonImageUrl = "~/imgs/newmoon.png";
+                            break;
+                        case "First Quarter":
+                            moonImageUrl = "~/imgs/firstquarter.png";
+                            break;
+                        case "Full Moon":
+                            moonImageUrl = "~/imgs/fullmoon.png";
+                            break;
+                        case "Third Quarter":
+                            moonImageUrl = "~/imgs/thirdquarter.png";
+                            break;
+                        case "Waning Crescent":
+                            moonImageUrl = "~/imgs/waningcrescent.png";
+                            break;
+                        case "Waning Gibbous":
+                            moonImageUrl = "~/imgs/waninggibbous.png";
+                            break;
+                        case "Waxing Crescent":
+                            moonImageUrl = "~/imgs/waxingcrescent.png";
+                            break;
+                        case "Waxing Gibbous":
+                            moonImageUrl = "~/imgs/waxinggibbous.png";
+                            break;
+                        default:
+                            moonImageUrl = "~/imgs/fullmoon.png";
+                            break;
+                    }
+
                     // Construct the new JSON object with the needed data
                     var moonStatus = new JObject
                     {
@@ -150,7 +183,8 @@ namespace MyCalendar.Controllers
                             ["moonrise"] = astroDetails["moonrise"],
                             ["moonset"] = astroDetails["moonset"],
                             ["moon_phase"] = astroDetails["moon_phase"],
-                            ["moon_illumination"] = astroDetails["moon_illumination"]
+                            ["moon_illumination"] = astroDetails["moon_illumination"],
+                            ["moon_image"] = moonImageUrl
                         }
                     };
 
