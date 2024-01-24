@@ -44,6 +44,7 @@ namespace MyCalendar.Controllers
                 moonDataVw.Moonset = moonData["moon_status"]["moonset"].ToString();
                 moonDataVw.MoonPhase = moonData["moon_status"]["moon_phase"].ToString();
                 moonDataVw.MoonIllumination = moonData["moon_status"]["moon_illumination"].ToString();
+                moonDataVw.MoonImgUrl = moonData["moon_status"]["moon_image"].ToString();
 
                 // Return the MoonDataViewModel to the corresponding view
                 return View(moonDataVw);
@@ -147,31 +148,31 @@ namespace MyCalendar.Controllers
                     switch (astroDetails["moon_phase"].ToString())
                     {
                         case "New Moon":
-                            moonImageUrl = "~/imgs/newmoon.png";
+                            moonImageUrl = "./imgs/newmoon.png";
                             break;
                         case "First Quarter":
-                            moonImageUrl = "~/imgs/firstquarter.png";
+                            moonImageUrl = "./imgs/firstquarter.png";
                             break;
                         case "Full Moon":
-                            moonImageUrl = "~/imgs/fullmoon.png";
+                            moonImageUrl = "./imgs/fullmoon.png";
                             break;
                         case "Third Quarter":
-                            moonImageUrl = "~/imgs/thirdquarter.png";
+                            moonImageUrl = "./imgs/thirdquarter.png";
                             break;
                         case "Waning Crescent":
-                            moonImageUrl = "~/imgs/waningcrescent.png";
+                            moonImageUrl = "./imgs/waningcrescent.png";
                             break;
                         case "Waning Gibbous":
-                            moonImageUrl = "~/imgs/waninggibbous.png";
+                            moonImageUrl = "./imgs/waninggibbous.png";
                             break;
                         case "Waxing Crescent":
-                            moonImageUrl = "~/imgs/waxingcrescent.png";
+                            moonImageUrl = "./imgs/waxingcrescent.png";
                             break;
                         case "Waxing Gibbous":
-                            moonImageUrl = "~/imgs/waxinggibbous.png";
+                            moonImageUrl = "./imgs/waxinggibbous.png";
                             break;
                         default:
-                            moonImageUrl = "~/imgs/fullmoon.png";
+                            moonImageUrl = "./imgs/fullmoon.png";
                             break;
                     }
 

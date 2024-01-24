@@ -1,8 +1,9 @@
 ﻿@model MoonDataViewModel
 
 <h1>Today's Moon</h1>
-<img src="" alt="Moon Phase Image">
+<img src="@Model.MoonImgUrl" alt="Moon Phase Image">
 <p>Moon Phase: @Model.MoonPhase</p>
 <p>Moonrise: @Model.Moonrise</p>
 <p>Moonset: @Model.Moonset</p>
 <p>Moon Illumination: @Model.MoonIllumination</p>
+<p>Moon imgurl: @Model.MoonImgUrl</p>
