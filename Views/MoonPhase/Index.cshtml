@@ -1,9 +1,26 @@
 ﻿@model MoonDataViewModel
 
-<h1>Today's Moon</h1>
-<img src="@Model.MoonImgUrl" alt="Moon Phase Image">
-<p>Moon Phase: @Model.MoonPhase</p>
-<p>Moonrise: @Model.Moonrise</p>
-<p>Moonset: @Model.Moonset</p>
-<p>Moon Illumination: @Model.MoonIllumination</p>
-<p>Moon imgurl: @Model.MoonImgUrl</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Moon</title>
+    <link rel="stylesheet" href="~/css/moonstyle.css">
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="moon-container">
+            <h1>Today's Moon</h1>
+            <img src="@Model.MoonImgUrl" alt="Moon Phase Image" class="moon-image">
+            <div class="moon-data">
+                <p>Moon Phase: <span>@Model.MoonPhase</span></p>
+                <p>Moonrise: <span>@Model.Moonrise</span></p>
+                <p>Moonset: <span>@Model.Moonset</span></p>
+                <p>Moon Illumination: <span>@Model.MoonIllumination</span></p>
+                <p>Moon imgurl: <span>@Model.MoonImgUrl</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -74,3 +74,33 @@ figure {
 }
 
 
+/* CSS for MoonPhase/index  */
+
+.moon-container {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.moon-image {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.moon-data {
+    color: #4a5a6a; /* A pretty color for the text */
+    font-family: 'Arial', sans-serif; /* A nice font */
+    margin-top: 20px; /* Spacing between the image and the data */
+}
+
+    .moon-data p {
+        margin: 5px 0;
+    }
+
+        .moon-data p span {
+            color: #6c7ae0; /* A different color for the data values */
+            font-weight: bold; /* Make the data values bold */
+        }
