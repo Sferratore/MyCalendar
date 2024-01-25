@@ -35,7 +35,7 @@ namespace MyCalendar.Controllers
                 var moonData = JObject.Parse(okMoonInfoResult.Value.ToString());
 
                 // Create a new instance of the MoonDataViewModel to store moon-related data
-                TodayWeatherViewModel moonDataVw = new TodayW();
+                TodayWeatherDataViewModel moonDataVw = new TodayW();
 
                 // Extract moon-related information and populate the MoonDataViewModel
                 moonDataVw.Moonrise = moonData["moon_status"]["moonrise"].ToString();
@@ -185,7 +185,7 @@ namespace MyCalendar.Controllers
                             ["avgtemp_f"] = weatherDetails["avgtemp_f"],
                             ["avghumidity"] = weatherDetails["avghumidity"],
                             ["avguv"] = weatherDetails["avguv"],
-                            ["moon_image"] = weatherImageUrl
+                            ["weather_image"] = weatherImageUrl
                         }
                     };
 
