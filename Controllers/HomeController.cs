@@ -95,5 +95,13 @@ namespace MyCalendar.Controllers
             TempData["loginOperationFeedback"] = "Your login credentials are wrong.";
             return View(formUser);
         }
+
+        // Clears session for user. Redirects to home page Home/Index (login/register).
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return View("Index"); // Index method of this controller.
+        }
     }
 }

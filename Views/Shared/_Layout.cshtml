@@ -57,6 +57,16 @@
                             }
                         </li>
                     </ul>
+                    @*Checks if user is logged in. In case, Logout option appears on the right on navbar.*@
+                    @if (isLoggedIn)
+                    {
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Logout">Logout</a>
+                            </li>
+                        </ul>
+                    }
+                    
                 </div>
             </div>
         </nav>
