@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\imgs\\thirdquarter.png"
     },
     {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\todayweatherlogo.png",
+      "PackagePath": "staticwebassets\\imgs\\todayweatherlogo.png"
+    },
+    {
       "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\waningcrescent.png",
       "PackagePath": "staticwebassets\\imgs\\waningcrescent.png"
     },
