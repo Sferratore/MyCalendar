@@ -26,30 +26,31 @@ namespace MyCalendar.Controllers
         public async Task<IActionResult> Index()
         {
             // Call the GetProcessedWeatherInfo method to retrieve weather-related information
-            IActionResult moonInfoResult = await GetProcessedWeatherInfo();
+            IActionResult weatherInfoResult = await GetProcessedWeatherInfo();
 
             // Check if the result is an OkObjectResult
-            if (moonInfoResult is OkObjectResult okMoonInfoResult)
+            if (weatherInfoResult is OkObjectResult okWeatherInfoResult)
             {
                 // Parse the JSON response from the OkObjectResult
-                var moonData = JObject.Parse(okMoonInfoResult.Value.ToString());
+                var weatherData = JObject.Parse(okWeatherInfoResult.Value.ToString());
 
-                // Create a new instance of the MoonDataViewModel to store moon-related data
-                TodayWeatherDataViewModel moonDataVw = new TodayW();
+                // Create a new instance of the TodayWeatherDataViewModel to store weather-related data
+                TodayWeatherDataViewModel weatherDataVw = new TodayWeatherDataViewModel();
 
-                // Extract moon-related information and populate the MoonDataViewModel
-                moonDataVw.Moonrise = moonData["moon_status"]["moonrise"].ToString();
-                moonDataVw.Moonset = moonData["moon_status"]["moonset"].ToString();
-                moonDataVw.MoonPhase = moonData["moon_status"]["moon_phase"].ToString();
-                moonDataVw.MoonIllumination = moonData["moon_status"]["moon_illumination"].ToString();
-                moonDataVw.MoonImgUrl = moonData["moon_status"]["moon_image"].ToString();
+                // Extract weather-related information and populate the TodayWeatherDataViewModel
+                weatherDataVw.WeatherCondition = weatherData["weather_status"]["weather_condition"].ToString();
+                weatherDataVw.AvgTemp_c = weatherData["weather_status"]["avgtemp_c"].ToString();
+                weatherDataVw.AvgTemp_f = weatherData["weather_status"]["avgtemp_f"].ToString();
+                weatherDataVw.AvgHumidity = weatherData["weather_status"]["avghumidity"].ToString();
+                weatherDataVw.AvgUv = weatherData["weather_status"]["avguv"].ToString();
+                weatherDataVw.WeatherImgUrl = weatherData["weather_status"]["weather_image"].ToString();
 
-                // Return the MoonDataViewModel to the corresponding view
-                return View(moonDataVw);
+                // Return the TodayWeatherDataViewModel to the corresponding view
+                return View(weatherDataVw);
             }
 
             // If the result is not OkObjectResult, return a BadRequest response
-            return BadRequest(moonInfoResult);
+            return BadRequest(weatherInfoResult);
         }
 
 
