@@ -185,7 +185,7 @@ namespace MyCalendar.Controllers
                             ["avgtemp_c"] = weatherDetails["avgtemp_c"],
                             ["avgtemp_f"] = weatherDetails["avgtemp_f"],
                             ["avghumidity"] = weatherDetails["avghumidity"],
-                            ["avguv"] = weatherDetails["avguv"],
+                            ["avguv"] = weatherDetails["uv"],
                             ["weather_image"] = weatherImageUrl
                         }
                     };
