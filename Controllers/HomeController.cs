@@ -54,8 +54,18 @@ namespace MyCalendar.Controllers
         [HttpPost]
         public IActionResult Register(UserViewModel formUser)
         {
-            if (ModelState.IsValid) //Checks if all the values inserted in the form are correct for an User object.
+            //Checks if all the values inserted in the form are correct for an User object.
+            if (ModelState.IsValid) 
             {
+                //Checking if user has been already registered.
+                User? userAlreadyExistent = _db.Users.Where(u => u.Email == formUser.Email).FirstOrDefault();
+                if (userAlreadyExistent != null)
+                {
+                    // Add an error message for the "Email" field
+                    ModelState.AddModelError("Email", "This email has already been used.");
+                    return View(formUser);
+                }
+
                 //Taking data from UserViewModel and creating an User object to insert into DB.
                 User toAdd = new User();
                 toAdd.Email = formUser.Email;
