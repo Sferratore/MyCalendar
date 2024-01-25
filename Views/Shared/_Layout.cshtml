@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject IHttpContextAccessor Accessor
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,9 +19,20 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             @* Container fluid for full width and proper alignment of nav elements *@
             <div class="container-fluid">
-                @* Navbar brand/logo which links to the Home/Index action. *@
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MyCalendar</a>
-
+                @* Navbar brand/logo which links to the Home/Index action if user is not logged, UserSection/Index else. *@
+                @{
+                    // Check if the session variable "loggedInId" exists and is not empty
+                    var loggedInId = Accessor.HttpContext.Session.GetString("loggedInId");
+                    var isLoggedIn = !string.IsNullOrEmpty(loggedInId);
+                    if (isLoggedIn)
+                    {
+                        <a class="navbar-brand" asp-area="" asp-controller="UserSection" asp-action="Index">MyCalendar</a>
+                    }
+                    else
+                    {
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MyCalendar</a>
+                    }
+                }
                 @* Navbar toggler button for collapsible navbar in mobile view. It toggles the visibility of the navbar-collapse div. *@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -31,8 +44,17 @@
                     @* Navigation menu items *@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            @* Navigation link to the Home/Index page *@
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            @* Navigation link. Goes Home/Index action if user is not logged, UserSection/Index else. *@
+                            @{
+                                if (isLoggedIn)
+                                {
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="UserSection" asp-action="Index">Home</a>
+                                }
+                                else
+                                {
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                }
+                            }
                         </li>
                     </ul>
                 </div>
