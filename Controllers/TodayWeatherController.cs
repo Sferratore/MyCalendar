@@ -150,6 +150,9 @@ namespace MyCalendar.Controllers
                         case "Fog":
                             weatherImageUrl = "./imgs/fog.png";
                             break;
+                        case "Heavy snow":
+                            weatherImageUrl = "./imgs/heavysnow.png";
+                            break;
                         default:
                             weatherImageUrl = "./imgs/fullmoon.png";
                             break;
