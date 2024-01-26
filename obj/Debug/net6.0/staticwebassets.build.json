@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wi9RIb3hR+Kc2DKMtQHgfmT0QKUb5xABVimn2ob7afg=",
+  "Hash": "gaD1k5musfXWoqNOWhPHUKBXQOEj3KyQViKeCGEdUzc=",
   "Source": "MyCalendar",
   "BasePath": "_content/MyCalendar",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imgs\\firstquarter.png"
+    },
+    {
+      "Identity": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\fog.png",
+      "SourceId": "MyCalendar",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\",
+      "BasePath": "_content/MyCalendar",
+      "RelativePath": "imgs/fog.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imgs\\fog.png"
     },
     {
       "Identity": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\fullmoon.png",

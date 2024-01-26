@@ -147,29 +147,8 @@ namespace MyCalendar.Controllers
                     string weatherImageUrl = string.Empty;
                     switch (weatherDetails["condition"]["text"].ToString())
                     {
-                        case "New Moon":
-                            weatherImageUrl = "./imgs/newmoon.png";
-                            break;
-                        case "First Quarter":
-                            weatherImageUrl = "./imgs/firstquarter.png";
-                            break;
-                        case "Full Moon":
-                            weatherImageUrl = "./imgs/fullmoon.png";
-                            break;
-                        case "Third Quarter":
-                            weatherImageUrl = "./imgs/thirdquarter.png";
-                            break;
-                        case "Waning Crescent":
-                            weatherImageUrl = "./imgs/waningcrescent.png";
-                            break;
-                        case "Waning Gibbous":
-                            weatherImageUrl = "./imgs/waninggibbous.png";
-                            break;
-                        case "Waxing Crescent":
-                            weatherImageUrl = "./imgs/waxingcrescent.png";
-                            break;
-                        case "Waxing Gibbous":
-                            weatherImageUrl = "./imgs/waxinggibbous.png";
+                        case "Fog":
+                            weatherImageUrl = "./imgs/fog.png";
                             break;
                         default:
                             weatherImageUrl = "./imgs/fullmoon.png";
