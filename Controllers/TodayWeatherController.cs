@@ -147,6 +147,9 @@ namespace MyCalendar.Controllers
                     string weatherImageUrl = string.Empty;
                     switch (weatherDetails["condition"]["text"].ToString())
                     {
+                        case "Sunny":
+                            weatherImageUrl = "./imgs/sunny.png";
+                            break;
                         case "Fog":
                             weatherImageUrl = "./imgs/fog.png";
                             break;
