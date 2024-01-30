@@ -57,7 +57,7 @@ namespace MyCalendar.Controllers
 
 
 
-        //Asks IPinfo API information about user location based on IP.
+        //Asks IPinfo API information about user location based on client's IP.
         //Returns country, region, city.
         private async Task<IActionResult> GetClientLocation(string remoteIpAddress)
         {
