@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\cloudy.png",
+      "PackagePath": "staticwebassets\\imgs\\cloudy.png"
+    },
+    {
       "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\firstquarter.png",
       "PackagePath": "staticwebassets\\imgs\\firstquarter.png"
     },
@@ -27,6 +31,10 @@
     {
       "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\fullmoon.png",
       "PackagePath": "staticwebassets\\imgs\\fullmoon.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\heavysnow.png",
+      "PackagePath": "staticwebassets\\imgs\\heavysnow.png"
     },
     {
       "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\img2.png",
@@ -45,8 +53,36 @@
       "PackagePath": "staticwebassets\\imgs\\img5.png"
     },
     {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\lightdrizzle.png",
+      "PackagePath": "staticwebassets\\imgs\\lightdrizzle.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\lightrainshower.png",
+      "PackagePath": "staticwebassets\\imgs\\lightrainshower.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\mist.png",
+      "PackagePath": "staticwebassets\\imgs\\mist.png"
+    },
+    {
       "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\newmoon.png",
       "PackagePath": "staticwebassets\\imgs\\newmoon.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\overcast.png",
+      "PackagePath": "staticwebassets\\imgs\\overcast.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\partlycloudy.png",
+      "PackagePath": "staticwebassets\\imgs\\partlycloudy.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\patchyrainpossible.png",
+      "PackagePath": "staticwebassets\\imgs\\patchyrainpossible.png"
+    },
+    {
+      "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\sunny.png",
+      "PackagePath": "staticwebassets\\imgs\\sunny.png"
     },
     {
       "Id": "C:\\Users\\39324\\Desktop\\MyCalendar\\wwwroot\\imgs\\thirdquarter.png",
