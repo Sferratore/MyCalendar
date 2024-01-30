@@ -159,6 +159,9 @@ namespace MyCalendar.Controllers
                         case "Patchy rain possible":
                             weatherImageUrl = "./imgs/patchyrainpossible.png";
                             break;
+                        case "Light rain shower":
+                            weatherImageUrl = "./imgs/lightrainshower.png";
+                            break;
                         default:
                             weatherImageUrl = "./imgs/fullmoon.png";
                             break;
