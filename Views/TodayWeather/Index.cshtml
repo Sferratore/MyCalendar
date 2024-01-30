@@ -3,7 +3,8 @@
 
 <div class="content-wrapper">
     <div class="weather-container">
-        <h1>Today's Weather at @DateTime.Now.Hour</h1>
+        <h1>Today's Weather at @Model.Location</h1>
+        <h2>Dated @Model.Timestamp</h2>
         <img src="@Model.WeatherImgUrl" alt="Weather Status Image" class="weather-image">
         <div class="weather-data">
             <p>Weather Condition: <span>@Model.WeatherCondition</span></p>
