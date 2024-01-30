@@ -43,6 +43,8 @@ namespace MyCalendar.Controllers
                 weatherDataVw.AvgTemp_f = weatherData["weather_status"]["avgtemp_f"].ToString();
                 weatherDataVw.AvgHumidity = weatherData["weather_status"]["avghumidity"].ToString();
                 weatherDataVw.AvgUv = weatherData["weather_status"]["avguv"].ToString();
+                weatherDataVw.Location = weatherData["weather_status"]["info_location"].ToString();
+                weatherDataVw.Timestamp = weatherData["weather_status"]["time"].ToString();
                 weatherDataVw.WeatherImgUrl = weatherData["weather_status"]["weather_image"].ToString();
 
                 // Return the TodayWeatherDataViewModel to the corresponding view
@@ -195,7 +197,7 @@ namespace MyCalendar.Controllers
                             ["avghumidity"] = weatherDetails["avghumidity"],
                             ["avguv"] = weatherDetails["uv"],
                             ["info_location"] = requestDetails["name"] + ", " + requestDetails["country"],
-                            ["time_location"] = requestDetails["localtime"],
+                            ["time"] = requestDetails["localtime"],
                             ["weather_image"] = weatherImageUrl
                         }
                     };
