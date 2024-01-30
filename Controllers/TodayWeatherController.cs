@@ -162,6 +162,9 @@ namespace MyCalendar.Controllers
                         case "Light rain shower":
                             weatherImageUrl = "./imgs/lightrainshower.png";
                             break;
+                        case "Overcast":
+                            weatherImageUrl = "./imgs/overcast.png";
+                            break;
                         default:
                             weatherImageUrl = "./imgs/fullmoon.png";
                             break;
