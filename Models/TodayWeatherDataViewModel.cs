@@ -8,6 +8,8 @@
         public string AvgTemp_f { get; set; }
         public string AvgHumidity { get; set; }
         public string AvgUv { get; set; }
+        public string Location { get; set; }
+        public string Timestamp { get; set; }
         public string WeatherImgUrl { get; set; }
     }
 }
