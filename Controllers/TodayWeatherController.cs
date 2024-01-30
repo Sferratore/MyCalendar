@@ -139,6 +139,8 @@ namespace MyCalendar.Controllers
                     // Parse the JSON response
                     var weatherData = JObject.Parse(okWeatherDataResult.Value.ToString());
 
+                    //Extract request details
+                    var requestDetails = weatherData[location];
                     // Extract weather details
                     var weatherDetails = weatherData["forecast"]["forecastday"][0]["day"];
 
@@ -192,6 +194,8 @@ namespace MyCalendar.Controllers
                             ["avgtemp_f"] = weatherDetails["avgtemp_f"],
                             ["avghumidity"] = weatherDetails["avghumidity"],
                             ["avguv"] = weatherDetails["uv"],
+                            ["info_location"] = requestDetails["name"] + ", " + requestDetails["country"],
+                            ["time_location"] = requestDetails["localtime"],
                             ["weather_image"] = weatherImageUrl
                         }
                     };
