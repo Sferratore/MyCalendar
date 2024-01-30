@@ -131,6 +131,6 @@ figure {
     }
 
         .weather-data p span {
-            color: #6c7ae0; /* A different color for the data values */
+            color: #d49059; /* A different color for the data values */
             font-weight: bold; /* Make the data values bold */
         }
