@@ -171,6 +171,9 @@ namespace MyCalendar.Controllers
                         case "Mist":
                             weatherImageUrl = "./imgs/mist.png";
                             break;
+                        case "Cloudy":
+                            weatherImageUrl = "./imgs/cloudy.png";
+                            break;
                         default:
                             weatherImageUrl = "./imgs/fullmoon.png";
                             break;
